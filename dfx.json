@@ -1,0 +1,50 @@
+{
+  "canisters": {
+    "exa_backend": {
+      "build": "npx azle exa_backend",
+      "candid": "src/exa_backend/exa_backend.did",
+      "gzip": true,
+      "main": "src/exa_backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/exa_backend/exa_backend.wasm"
+    },
+    "exa_frontend": {
+      "dependencies": [
+        "exa_backend"
+      ],
+      "source": [
+        "src/exa_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "exa_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
